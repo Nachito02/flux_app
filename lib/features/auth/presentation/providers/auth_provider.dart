@@ -39,7 +39,30 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  void registerUser(String email, String password, String fullName) async {}
+  void registerUser(
+    String email,
+    String password,
+    String name,
+    String lastName,
+    String confirmPassword,
+  ) async {
+
+    if (password != confirmPassword) {
+      state = state.copyWith(errorMessage: 'Las contraseñas no coinciden');
+      return;
+    }
+    try {
+      final user = await authRepository.register(
+        email,
+        password,
+        name,
+        lastName,
+      );
+      _setLoggedUser(user);
+    } on CustomError catch (e) {
+      logout(e.message);
+    } 
+  }
 
   Future<void> checkAuthStatus() async {
     final token = await keyValueStorageService.getValue<String>('token');

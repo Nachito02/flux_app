@@ -2,7 +2,9 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flux_pos/features/auth/presentation/providers/auth_provider.dart';
+import 'package:flux_pos/features/auth/presentation/screens/register_screen.dart';
 import 'package:flux_pos/features/auth/presentation/screens/screens.dart';
+import 'package:flux_pos/features/products/presentation/screens/screens.dart';
 import 'app_router_notifier.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,16 +26,16 @@ final goRouterProvider = Provider((ref) {
         path: '/login',
         builder: (context, state) => const LoginScreen(),
       ),
-      // GoRoute(
-      //   path: '/register',
-      //   builder: (context, state) => const RegisterScreen(),
-      // ),
+      GoRoute(
+        path: '/register',
+        builder: (context, state) => const RegisterScreen(),
+      ),
 
       ///* Product Routes
-      // GoRoute(
-      //   path: '/',
-      //   builder: (context, state) => const ProductsScreen(),
-      // ),  
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const HomeScreen(),
+      ),  
 
       ///* Product Routes
       // GoRoute(
