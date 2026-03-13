@@ -33,7 +33,7 @@ final goRouterProvider = Provider((ref) {
 
       ///* Product Routes
       GoRoute(
-        path: '/',
+        path: '/home',
         builder: (context, state) => const HomeScreen(),
       ),  
 
@@ -63,7 +63,7 @@ final goRouterProvider = Provider((ref) {
         if (isGoingTo == '/login' ||
             isGoingTo == '/register' ||
             isGoingTo == '/splash') {
-          return '/';
+          return '/home';
         }
       }
 

@@ -11,7 +11,7 @@ class UserInfo extends ConsumerWidget {
     final user = ref.watch(authProvider).user;
 
     return Padding(
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 30, vertical: 20),
+      padding: EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         children: [Text('Bienvenido ${user!.name} ${user.lastName}')],
       ),
